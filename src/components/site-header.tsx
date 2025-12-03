@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { CartIcon } from "./cart/cart-icon";
+import { AuthButton } from "@/components/auth/auth-button";
 import {
   Shield,
   BarChart3,
@@ -15,8 +15,7 @@ import {
   ChevronDown,
   LogOut,
   User,
-  HelpCircle,
-  ShoppingCart
+  HelpCircle
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -36,7 +35,6 @@ export function SiteHeader() {
   const primaryNav = [
     { name: "Dashboard", href: "/dashboard", icon: BarChart3 },
     { name: "Projects", href: "/projects", icon: FileCheck },
-    { name: "Shop", href: "/shop", icon: ShoppingCart },
     { name: "Compliance", href: "/compliance", icon: Shield },
     { name: "Audit", href: "/audit", icon: Search },
     { name: "Reports", href: "/reports", icon: BarChart3 },
@@ -48,13 +46,6 @@ export function SiteHeader() {
     { id: 2, title: "Audit request submitted", project: "Chatbot v2.0", urgent: false },
     { id: 3, title: "Certificate expiring soon", project: "HR Assistant", urgent: false },
   ];
-
-  const mockUser = {
-    name: "Alex Johnson",
-    email: "alex.johnson@company.com",
-    role: "Compliance Officer",
-    avatar: null,
-  };
 
   return (
     <>
@@ -98,8 +89,7 @@ export function SiteHeader() {
                 <span className="text-sm">Search...</span>
               </Button>
 
-              {/* Shopping Cart */}
-              <CartIcon />
+              {/* Shopping cart removed */}
 
               {/* Notifications */}
               <DropdownMenu>
@@ -134,50 +124,8 @@ export function SiteHeader() {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              {/* User menu */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex items-center gap-2 px-3">
-                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10">
-                      <User className="h-4 w-4 text-primary" />
-                    </div>
-                    <div className="hidden md:block text-left">
-                      <p className="text-sm font-medium">{mockUser.name}</p>
-                      <p className="text-xs text-muted-foreground">{mockUser.role}</p>
-                    </div>
-                    <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56">
-                  <DropdownMenuLabel className="font-normal">
-                    <div className="flex flex-col space-y-1">
-                      <p className="text-sm font-medium leading-none">{mockUser.name}</p>
-                      <p className="text-xs leading-none text-muted-foreground">{mockUser.email}</p>
-                      <Badge variant="secondary" className="w-fit mt-1">
-                        {mockUser.role}
-                      </Badge>
-                    </div>
-                  </DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <User className="mr-2 h-4 w-4" />
-                    <span>Profile</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Settings className="mr-2 h-4 w-4" />
-                    <span>Settings</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <HelpCircle className="mr-2 h-4 w-4" />
-                    <span>Help & Support</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <LogOut className="mr-2 h-4 w-4" />
-                    <span>Sign out</span>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              {/* Authentication */}
+              <AuthButton />
 
               {/* Theme toggle */}
               <ModeToggle />

@@ -26,10 +26,19 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button asChild size="lg" className="text-lg px-8">
-                <Link href="/dashboard">Get Started</Link>
+              <Button
+                asChild
+                size="lg"
+                className="text-lg px-8 bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-700 shadow-lg hover:shadow-xl transition-all duration-200 font-semibold"
+              >
+                <Link href="/login">Sign In to Dashboard</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="text-lg px-8">
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="text-lg px-8 border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 font-semibold"
+              >
                 <Link href="/docs">Learn More</Link>
               </Button>
             </div>
@@ -194,10 +203,19 @@ export default function Home() {
               Join organizations that trust AIGEP for their AI compliance and certification needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="text-lg px-8">
-                <Link href="/dashboard">Start Free Trial</Link>
+              <Button
+                asChild
+                size="lg"
+                className="text-lg px-8 bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-700 shadow-lg hover:shadow-xl transition-all duration-200 font-semibold"
+              >
+                <Link href="/login">Sign In Now</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="text-lg px-8">
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="text-lg px-8 border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 font-semibold"
+              >
                 <Link href="/docs">View Documentation</Link>
               </Button>
             </div>

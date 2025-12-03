@@ -32,15 +32,23 @@ const TimeToComplianceIndicator: React.FC<TimeToComplianceIndicatorProps> = ({
     ? complianceData.reduce((sum, data) => sum + data.reviewTimeDays, 0) / complianceData.length
     : 0;
 
-  // Calculate trends (compare recent to older data)
-  const recentComplianceData = complianceData.filter(data =>
-    new Date(data.lastUpdate) > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
-  );
+  // Use memoized calculations to avoid purity issues
+  const { recentComplianceData, olderComplianceData } = React.useMemo(() => {
+    const now = new Date();
+    const currentTime = now.getTime();
+    const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+    const sixtyDaysAgo = new Date(now.getTime() - 60 * 24 * 60 * 60 * 1000);
 
-  const olderComplianceData = complianceData.filter(data =>
-    new Date(data.lastUpdate) <= new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) &&
-    new Date(data.lastUpdate) > new Date(Date.now() - 60 * 24 * 60 * 60 * 1000)
-  );
+    return {
+      recentComplianceData: complianceData.filter(data =>
+        new Date(data.lastUpdate) > thirtyDaysAgo
+      ),
+      olderComplianceData: complianceData.filter(data =>
+        new Date(data.lastUpdate) <= thirtyDaysAgo &&
+        new Date(data.lastUpdate) > sixtyDaysAgo
+      )
+    };
+  }, [complianceData]);
 
   const recentAvgTime = recentComplianceData.length > 0
     ? recentComplianceData.reduce((sum, data) => sum + data.daysToCompliance, 0) / recentComplianceData.length
