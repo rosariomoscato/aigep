@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { CartIcon } from "./cart/cart-icon";
 import {
   Shield,
   BarChart3,
@@ -14,7 +15,8 @@ import {
   ChevronDown,
   LogOut,
   User,
-  HelpCircle
+  HelpCircle,
+  ShoppingCart
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -34,6 +36,7 @@ export function SiteHeader() {
   const primaryNav = [
     { name: "Dashboard", href: "/dashboard", icon: BarChart3 },
     { name: "Projects", href: "/projects", icon: FileCheck },
+    { name: "Shop", href: "/shop", icon: ShoppingCart },
     { name: "Compliance", href: "/compliance", icon: Shield },
     { name: "Audit", href: "/audit", icon: Search },
     { name: "Reports", href: "/reports", icon: BarChart3 },
@@ -94,6 +97,9 @@ export function SiteHeader() {
                 <Search className="h-4 w-4" />
                 <span className="text-sm">Search...</span>
               </Button>
+
+              {/* Shopping Cart */}
+              <CartIcon />
 
               {/* Notifications */}
               <DropdownMenu>

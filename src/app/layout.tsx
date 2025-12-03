@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { CartProvider } from "@/lib/cart-context";
 import type { Metadata } from "next";
 
 const geistSans = Geist({
@@ -97,9 +98,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SiteHeader />
-          <main id="main-content">{children}</main>
-          <SiteFooter />
+          <CartProvider>
+            <SiteHeader />
+            <main id="main-content">{children}</main>
+            <SiteFooter />
+          </CartProvider>
           <Toaster richColors position="top-right" />
         </ThemeProvider>
       </body>
