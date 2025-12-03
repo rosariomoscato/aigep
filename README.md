@@ -1,30 +1,25 @@
-# Agentic Coding Boilerplate
+# AIGEP - AI Governance & Ethics Platform
 
-A complete agentic coding boilerplate with authentication, PostgreSQL database, AI chat functionality, and modern UI components - perfect for building AI-powered applications and autonomous agents.
+A comprehensive AI governance platform that provides compliance management, risk assessment, and certification for AI products. Supporting both traditional machine learning and LLM-based applications with role-based workflows for organizations implementing responsible AI practices.
 
 ## 🚀 Features
 
+- **🛡️ Compliance Management**: Automated compliance checks for EU AI Act, Rome Call, and industry standards
+- **📊 Risk Assessment**: Comprehensive risk evaluation tools for AI systems and models
+- **🏆 Certification System**: Quality badges and certification workflows with public verification
+- **👥 Multi-Role Platform**: Role-based access for Data Scientists, Compliance Officers, Auditors, and Product Managers
+- **📈 Monitoring & Analytics**: Real-time model performance tracking, drift detection, and compliance metrics
+- **📁 Project Management**: Complete artifact versioning and collaboration for ML and LLM projects
+- **📚 Documentation & Learning**: Interactive guides, tutorials, and best practices for AI governance
 - **🔐 Authentication**: Better Auth with Google OAuth integration
 - **🗃️ Database**: Drizzle ORM with PostgreSQL
-- **🤖 AI Integration**: Vercel AI SDK with OpenRouter (access to 100+ AI models)
-- **📁 File Storage**: Automatic local/Vercel Blob storage with seamless switching
 - **🎨 UI Components**: shadcn/ui with Tailwind CSS
 - **⚡ Modern Stack**: Next.js 16, React 19, TypeScript
 - **📱 Responsive**: Mobile-first design approach
 
-## 🎥 Video Tutorial
+## 🎯 Platform Overview
 
-Watch the complete walkthrough of this agentic coding template:
-
-[![Agentic Coding Boilerplate Tutorial](https://img.youtube.com/vi/JQ86N3WOAh4/maxresdefault.jpg)](https://youtu.be/JQ86N3WOAh4)
-
-<a href="https://youtu.be/JQ86N3WOAh4" target="_blank" rel="noopener noreferrer">🔗 Watch on YouTube</a>
-
-## ☕ Support This Project
-
-If this boilerplate helped you build something awesome, consider buying me a coffee!
-
-[![Buy me a coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/leonvanzyl)
+AIGEP is designed for organizations that need to implement comprehensive AI governance and compliance frameworks. The platform provides end-to-end solutions for managing AI product lifecycles while ensuring adherence to regulatory requirements and ethical standards.
 
 ## 📋 Prerequisites
 
@@ -36,53 +31,19 @@ Before you begin, ensure you have the following installed on your machine:
 
 ## 🛠️ Quick Setup
 
-### Automated Setup (Recommended)
-
-Get started with a single command:
+**1. Clone the Repository**
 
 ```bash
-npx create-agentic-app@latest my-app
-cd my-app
+git clone https://github.com/yourusername/aigep.git
+cd aigep
 ```
-
-Or create in the current directory:
-
-```bash
-npx create-agentic-app@latest .
-```
-
-The CLI will:
-- Copy all boilerplate files
-- Install dependencies with your preferred package manager (pnpm/npm/yarn)
-- Set up your environment file
-
-**Next steps after running the command:**
-
-1. Update `.env` with your API keys and database credentials
-2. Start the database: `docker compose up -d`
-3. Run migrations: `npm run db:migrate`
-4. Start dev server: `npm run dev`
-
-### Manual Setup (Alternative)
-
-If you prefer to set up manually:
-
-**1. Clone or Download the Repository**
-
-**Option A: Clone with Git**
-
-```bash
-git clone https://github.com/leonvanzyl/agentic-coding-starter-kit.git
-cd agentic-coding-starter-kit
-```
-
-**Option B: Download ZIP**
-Download the repository as a ZIP file and extract it to your desired location.
 
 **2. Install Dependencies**
 
+This project uses pnpm as the package manager:
+
 ```bash
-npm install
+pnpm install
 ```
 
 **3. Environment Setup**
@@ -97,7 +58,7 @@ Fill in your environment variables in the `.env` file:
 
 ```env
 # Database
-POSTGRES_URL="postgresql://username:password@localhost:5432/your_database_name"
+POSTGRES_URL="postgresql://username:password@localhost:5432/aigep_db"
 
 # Authentication - Better Auth
 BETTER_AUTH_SECRET="your-random-32-character-secret-key-here"
@@ -105,12 +66,6 @@ BETTER_AUTH_SECRET="your-random-32-character-secret-key-here"
 # Google OAuth (Get from Google Cloud Console)
 GOOGLE_CLIENT_ID="your-google-client-id"
 GOOGLE_CLIENT_SECRET="your-google-client-secret"
-
-# AI Integration via OpenRouter (Optional - for chat functionality)
-# Get your API key from: https://openrouter.ai/settings/keys
-# View available models at: https://openrouter.ai/models
-OPENROUTER_API_KEY="sk-or-v1-your-openrouter-api-key-here"
-OPENROUTER_MODEL="openai/gpt-5-mini"
 
 # App URL (for production deployments)
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
@@ -126,14 +81,14 @@ BLOB_READ_WRITE_TOKEN=""
 Generate and run database migrations:
 
 ```bash
-npm run db:generate
-npm run db:migrate
+pnpm run db:generate
+pnpm run db:migrate
 ```
 
 **5. Start the Development Server**
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Your application will be available at [http://localhost:3000](http://localhost:3000)
@@ -160,14 +115,16 @@ Your application will be available at [http://localhost:3000](http://localhost:3
    - `https://yourdomain.com/api/auth/callback/google` (production)
 6. Copy the **Client ID** and **Client Secret** to your `.env` file
 
-### OpenRouter API Key
+### AIGEP Platform Configuration
 
-1. Go to <a href="https://openrouter.ai/" target="_blank">OpenRouter</a>
-2. Sign up or log in to your account
-3. Navigate to **Settings** → **Keys** or visit <a href="https://openrouter.ai/settings/keys" target="_blank">Keys Settings</a>
-4. Click **Create Key** and give it a name
-5. Copy the API key and add it to your `.env` file as `OPENROUTER_API_KEY`
-6. Browse available models at <a href="https://openrouter.ai/models" target="_blank">OpenRouter Models</a>
+The AIGEP platform supports various AI governance frameworks and compliance standards. Configuration includes:
+
+1. **Compliance Frameworks**: EU AI Act, Rome Call principles, industry-specific regulations
+2. **Risk Assessment Models**: Configurable risk matrices and evaluation criteria
+3. **Certification Workflows**: Customizable certification paths and badge systems
+4. **Role-Based Access**: Define permissions and workflows for different user types
+
+These configurations can be managed through the admin dashboard after initial setup.
 
 ### File Storage Configuration
 
@@ -192,45 +149,61 @@ The storage service automatically detects which backend to use based on the pres
 
 ```
 src/
-├── app/                    # Next.js app directory
-│   ├── api/               # API routes
-│   │   ├── auth/          # Authentication endpoints
-│   │   └── chat/          # AI chat endpoint
-│   ├── chat/              # AI chat page
-│   ├── dashboard/         # User dashboard
-│   └── page.tsx           # Home page
-├── components/            # React components
-│   ├── auth/             # Authentication components
-│   └── ui/               # shadcn/ui components
-└── lib/                  # Utilities and configurations
-    ├── auth.ts           # Better Auth configuration
-    ├── auth-client.ts    # Client-side auth utilities
-    ├── db.ts             # Database connection
-    ├── schema.ts         # Database schema
-    ├── storage.ts        # File storage abstraction
-    └── utils.ts          # General utilities
+├── app/                           # Next.js app directory
+│   ├── api/                      # API routes
+│   │   ├── auth/                 # Authentication endpoints
+│   │   └── diagnostics/          # System diagnostics
+│   ├── audit/                    # Audit management page
+│   ├── compliance/               # Compliance management page
+│   ├── dashboard/                # Main dashboard
+│   ├── login/                    # Login page
+│   ├── notifications/            # Notifications center
+│   ├── projects/                 # Project management hub
+│   ├── reports/                  # Reports and analytics
+│   └── settings/                 # Settings and configuration
+├── components/                   # React components
+│   ├── auth/                    # Authentication components
+│   └── ui/                      # shadcn/ui components
+└── lib/                         # Utilities and configurations
+    ├── auth.ts                  # Better Auth configuration
+    ├── auth-client.ts           # Client-side auth utilities
+    ├── db.ts                    # Database connection
+    ├── schema.ts                # Database schema
+    ├── storage.ts               # File storage abstraction
+    └── utils.ts                 # General utilities
 ```
 
 ## 🔧 Available Scripts
 
 ```bash
-npm run dev          # Start development server with Turbopack
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
-npm run db:generate  # Generate database migrations
-npm run db:migrate   # Run database migrations
-npm run db:push      # Push schema changes to database
-npm run db:studio    # Open Drizzle Studio (database GUI)
-npm run db:dev       # Push schema for development
-npm run db:reset     # Reset database (drop all tables)
+pnpm run dev          # Start development server with Turbopack
+pnpm run build        # Build for production (runs db:migrate first)
+pnpm run build:ci     # Build without database (for CI/CD pipelines)
+pnpm run start        # Start production server
+pnpm run lint         # Run ESLint
+pnpm run typecheck    # TypeScript type checking
+pnpm run check        # Run lint and typecheck
+pnpm run format       # Format code with Prettier
+pnpm run format:check # Check code formatting
+pnpm run db:generate  # Generate database migrations
+pnpm run db:migrate   # Run database migrations
+pnpm run db:push      # Push schema changes to database
+pnpm run db:studio    # Open Drizzle Studio (database GUI)
+pnpm run db:dev       # Push schema for development
+pnpm run db:reset     # Reset database (drop all tables)
 ```
 
-## 📖 Pages Overview
+## 📖 Platform Modules
 
-- **Home (`/`)**: Landing page with setup instructions and features overview
-- **Dashboard (`/dashboard`)**: Protected user dashboard with profile information
-- **Chat (`/chat`)**: AI-powered chat interface using OpenRouter (requires authentication)
+- **Home (`/`)**: Landing page with platform overview and features
+- **Login (`/login`)**: Authentication portal with Google OAuth
+- **Dashboard (`/dashboard`)**: Main governance dashboard with overview metrics
+- **Projects (`/projects`)**: Project management hub for AI initiatives
+- **Compliance (`/compliance`)**: Compliance management and monitoring
+- **Audit (`/audit`)**: Audit trails and compliance verification
+- **Reports (`/reports`)**: Analytics and governance reports
+- **Settings (`/settings`)**: Platform configuration and user preferences
+- **Notifications (`/notifications`)**: Alert center for compliance and governance updates
 
 ## 🚀 Deployment
 
@@ -259,37 +232,51 @@ Ensure these are set in your production environment:
 - `BETTER_AUTH_SECRET` - Secure random 32+ character string
 - `GOOGLE_CLIENT_ID` - Google OAuth Client ID
 - `GOOGLE_CLIENT_SECRET` - Google OAuth Client Secret
-- `OPENROUTER_API_KEY` - OpenRouter API key (optional, for AI chat functionality)
-- `OPENROUTER_MODEL` - Model name from OpenRouter (optional, defaults to openai/gpt-5-mini)
 - `NEXT_PUBLIC_APP_URL` - Your production domain
 - `BLOB_READ_WRITE_TOKEN` - Vercel Blob token (optional, uses local storage if not set)
 
-## 🎥 Tutorial Video
+## 🎯 Use Cases
 
-Watch my comprehensive tutorial on how to use this agentic coding boilerplate to build AI-powered applications:
+AIGEP is designed for various scenarios:
 
-<a href="https://youtu.be/JQ86N3WOAh4" target="_blank" rel="noopener noreferrer">📺 YouTube Tutorial - Building with Agentic Coding Boilerplate</a>
+- **Enterprise AI Governance**: Manage compliance across multiple AI projects and teams
+- **Regulatory Compliance**: Ensure adherence to EU AI Act and other regulations
+- **AI Certification**: Obtain and maintain AI quality certifications
+- **Risk Management**: Identify and mitigate AI-related risks
+- **Audit Preparation**: Maintain comprehensive audit trails for AI systems
+- **Stakeholder Transparency**: Provide visibility into AI governance practices
+
+## 🔒 Security & Compliance
+
+- **GDPR Compliant**: Built with privacy-by-design principles
+- **Role-Based Access Control**: Granular permissions for different user types
+- **Audit Logging**: Comprehensive tracking of all governance activities
+- **Data Encryption**: End-to-end encryption for sensitive data
+- **Secure Authentication**: Enterprise-grade authentication with Better Auth
 
 ## 🤝 Contributing
+
+We welcome contributions to the AIGEP platform! Please follow our contribution guidelines:
 
 1. Fork this repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+5. Open a Pull Request with a detailed description
 
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Need Help?
+## 🆘 Support & Documentation
 
-If you encounter any issues:
+For support and additional resources:
 
-1. Check the [Issues](https://github.com/leonvanzyl/agentic-coding-starter-kit/issues) section
-2. Review the documentation above
-3. Create a new issue with detailed information about your problem
+- **Documentation**: Comprehensive guides and API documentation
+- **Community Forum**: Connect with other AIGEP users
+- **Issue Tracking**: Report bugs and request features via GitHub Issues
+- **Enterprise Support**: Contact us for enterprise-level support and customizations
 
 ---
 
-**Happy coding! 🚀**
+**Transform your AI governance with AIGEP! 🚀**
