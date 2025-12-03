@@ -20,7 +20,14 @@ export function SignOutButton() {
     <Button
       variant="outline"
       onClick={async () => {
-        await signOut();
+        await signOut({
+          fetchOptions: {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          },
+        });
         router.replace("/");
         router.refresh();
       }}

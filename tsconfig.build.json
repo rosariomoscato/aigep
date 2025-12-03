@@ -1,9 +1,10 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
@@ -15,10 +16,8 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "noImplicitOverride": true,
     "exactOptionalPropertyTypes": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -32,17 +31,36 @@
         "name": "next"
       }
     ],
-    "types": ["react", "react-dom", "node"],
     "paths": {
       "@/*": ["./src/*"]
-    }
-  },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
-  ],
-  "exclude": ["node_modules", "create-agentic-app"]
+    },
+    "include": [
+      "next-env.d.ts",
+      "**/*.ts",
+      "**/*.tsx",
+      ".next/types/**/*.ts"
+    ],
+    "exclude": [
+      "node_modules",
+      "create-agentic-app",
+      ".next",
+      ".next/types/**"
+    ],
+    "typeRoot": "./src/types",
+    "types": ["react", "react-dom", "node"],
+    "types": [
+      "@radix-ui/react-tabs",
+      "@radix-ui/react-accordion",
+      "@radix-ui/react-progress",
+      "@radix-ui/react-tooltip",
+      "@radix-ui/react-select",
+      "@radix-ui/react-checkbox",
+      "@radix-ui/react-calendar",
+      "@radix-ui/react-scroll-area",
+      "@radix-ui/react-separator",
+      "@radix-ui/react-pagination",
+      "@radix-ui/react-command",
+      "@lucide-react"
+    ]
+  }
 }

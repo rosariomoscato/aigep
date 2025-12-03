@@ -98,8 +98,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SiteHeader />
-          <main id="main-content">{children}</main>
-          <SiteFooter />
+            <main id="main-content">{children}</main>
+            <SiteFooter />
           <Toaster richColors position="top-right" />
         </ThemeProvider>
       </body>
